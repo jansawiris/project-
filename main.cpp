@@ -69,8 +69,8 @@ int main() {
 				XMLElement * balance = pAccount->FirstChildElement("balance");
 				if (NULL != balance) {
 					// Convert to *char
-					strcpy_s(amountText, "$");
-					strcat_s(amountText, balance->GetText());
+					strcpy(amountText, "$");
+					strcat(amountText, balance->GetText());
 					//Print out amount
 					cout << '|' << setw(10) << amountText << '|';
 				}
