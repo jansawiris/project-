@@ -81,12 +81,8 @@ int main() {
 					cout << setw(12) << openDate->GetText() << '|';
 				}
 				cout << endl;
-				cout << "------------------------------------------------------------";
-				std::cout << std::endl;
-				// Next Account
-				pAccount = pAccount->NextSiblingElement("Account");
-			}
-			cout << "\n";
+				return 0;
 		}
 	}
+}
 }
