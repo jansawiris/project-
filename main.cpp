@@ -34,7 +34,7 @@ int main() {
 
 	// Load the XML file into the Doc instance
 	doc.LoadFile(path);
-// Get root Element, root element is the first XML element or the first record in the file
+	// Get root Element, root element is the first XML element or the first record in the file
 	XMLElement * pRootElement = doc.RootElement();
 	
 	// Read the XML and print the results in a tabluar format
