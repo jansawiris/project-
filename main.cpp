@@ -47,7 +47,7 @@ cout << '|' << setw(7) << "Acc No." << '|' << setw(12) << "Account Type" << '|' 
 	if (NULL != pRootElement) {
 
 		//Get 'Accounts' Child
-XMLElement * pAccounts = pRootElement->FirstChildElement("Accounts");
+XMLElement * pAccounts = pRootElement->FirstChildElement("Accounts"); // Creating the pointer
 		if (NULL != pAccounts) {
 
 
@@ -60,7 +60,7 @@ XMLElement * pAccounts = pRootElement->FirstChildElement("Accounts");
 			// Get 'AccountNo' Child
 	XMLElement * pAccountNo = pAccount->FirstChildElement("AccountNo");
 				if (NULL != pAccountNo) {
-			//Print out AccountNo
+			//Printing out the account number
 			cout << '|' << setw(7) << pAccountNo->GetText();
 				}
 				//Get 'type' Child
