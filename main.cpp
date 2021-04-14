@@ -79,7 +79,6 @@ XMLElement * pAccounts = pRootElement->FirstChildElement("Accounts");
 	XMLElement * pbalance = pAccount->FirstChildElement("balance");
 				if (NULL != pbalance) {
 			
-					//Print out amount in dollars 
 		cout << '|' << setw(10) <<"$"<< pbalance->GetText() << '|';
 				}
 				// Get 'openDate' Child
