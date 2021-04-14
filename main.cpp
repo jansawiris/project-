@@ -29,7 +29,7 @@ int main() {
 
 	// Create an XML Document
 	XMLDocument doc;
-	const char * path = "Accounts.xml";
+	const char * path = "Accounts.xml";//to look
 	char amountText[100];
 
 	// Load the XML file into the Doc instance
@@ -74,20 +74,20 @@ XMLElement * pAccounts = pRootElement->FirstChildElement("Accounts");
 				// Get 'customer' Child
 	XMLElement * pname = pAccount->FirstChildElement("customer");
 				if (NULL != pname) {
-					//Print out name
+					//Print out name of the account 
 				cout << '|' << setw(15) << pname->GetText();
 				}
 				// Get 'balance' Child
 	XMLElement * pbalance = pAccount->FirstChildElement("balance");
 				if (NULL != pbalance) {
 			
-					//Print out amount
+					//Print out amount in dollars 
 		cout << '|' << setw(10) <<"$"<< pbalance->GetText() << '|';
 				}
 				// Get 'openDate' Child
 	XMLElement * popenDate = pAccount->FirstChildElement("openDate");
 				if (NULL != popenDate) {
-					//Print out openDate
+					// to Print out openDate of the account 
 			cout << setw(12) << popenDate->GetText() << '|';
 				}
 				cout << endl;
