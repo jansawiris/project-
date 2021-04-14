@@ -11,8 +11,6 @@ using namespace tinyxml2;
 	We are doing two things here in sequence
 		1) Read the records from the XMl file 
 		2) Write two records into an xml file
-			-> One for Craig
-			-> one for Roy
 		2) Read the records from the XMl file after writing to check if the account is written into the file
 
 	tinyXMl2 treats each entry of the XML document as an XML element 
