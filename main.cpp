@@ -71,3 +71,100 @@ cout << "------------------------------------------------------------";
 
 
 }
+void printXML()
+{
+	// Load the XML file into the Doc instance
+	doc.LoadFile(path);
+	pRootElement = doc.RootElement();
+	
+	// Read the XML and print the results in a tabluar format
+	// Note: setw(7) will print the string with fixed with of 7 characters wide 
+
+cout << '|' << setw(7) << "Reading From File Accounts.xml .........." << '|' << endl;
+	// Print out the Table Header
+cout << '|' << setw(7) << "Acc No." << '|' << setw(12) << "Account Type" << '|' << setw(15) << "Customer Name" << '|' << setw(10) << "Balance" << '|' << setw(12) << "Open Date" <<
+		endl << endl;
+
+	// 
+	if (NULL != pRootElement) {
+		//Get 'Accounts' Child
+XMLElement * pAccounts = pRootElement->FirstChildElement("Accounts");
+		if (NULL != pAccounts) {
+
+			//Get 'Account' Child
+	XMLElement * pAccount = pAccounts->FirstChildElement("Account");
+			
+			// Loop through all existing 
+			while (pAccount) {
+				printOneRecord(pAccount);
+				// Next Account
+		pAccount = pAccount->NextSiblingElement("Account");
+			}
+			cout << "\n";
+		}
+	}
+
+}
+
+void insertRecord()
+{
+	string input;
+
+	// Load the XML file into the Doc instance
+	doc.LoadFile(path);
+	//Get root Element
+	XMLElement * pTop = doc.RootElement();
+	// Get 'Accounts' Child
+	XMLElement * pAccounts = pTop -> FirstChildElement("Accounts");
+
+	//Create new Element
+	XMLNode * pRoot = doc.NewElement("Account");
+	//Insert new Element
+	pAccounts -> InsertEndChild(pRoot);
+	//Create new Element
+	XMLElement * pElement = doc.NewElement("AccountNo");
+
+	cout << "Enter Account Number: ";
+	cin >> input;
+	// Set new Element Text
+	pElement -> SetText(input.c_str()); // AccountNo
+
+	// Insert new Element
+	pRoot -> InsertEndChild(pElement);
+	//Create new Element
+	pElement = doc.NewElement("type");
+	// Set new Element Text
+	cout << "Enter Account Type: ";
+	cin >> input;
+	pElement -> SetText(input.c_str()); // type
+	// Insert new Element
+	pRoot -> InsertEndChild(pElement);
+	//Create new Element
+	pElement = doc.NewElement("customer");
+	cout << "Enter Customer Name: ";
+	cin >> input;
+	// Set new element Text
+	pElement -> SetText(input.c_str()); // customer
+ 	// Insert new Element
+	pRoot -> InsertEndChild(pElement);
+	//Create new Element
+	pElement = doc.NewElement("balance");
+	cout << "Enter Account Balance: ";
+	cin >> input;
+	// Set new Element Text
+	pElement -> SetText(input.c_str()); // balance
+	// Insert new Element
+	pRoot -> InsertEndChild(pElement);
+	//Create new Element
+	pElement = doc.NewElement("openDate");
+	// Set new Element Text
+	cout << "Enter OpenDate: ";
+	cin >> input;
+	pElement -> SetText(input.c_str()); // openDate
+	//Insert new Element
+	pRoot -> InsertEndChild(pElement);
+	//Save the changes into the XML file
+	doc.SaveFile(path);
+
+	cout << "Record Inserted into the XML" << endl << endl;
+}
