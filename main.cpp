@@ -168,3 +168,176 @@ void insertRecord()
 
 	cout << "Record Inserted into the XML" << endl << endl;
 }
+void serachRecord() {
+
+ 
+
+              // Load the XML file into the Doc instance
+
+              doc.LoadFile(path);
+
+              pRootElement = doc.RootElement();
+
+ 
+
+              string AccName;
+
+              cout << "Enter Account Name record to search for: ";
+
+              cin >> AccName;
+
+ 
+
+              if (NULL != pRootElement) {
+
+ 
+
+                             //Get 'Accounts' Child
+
+XMLElement * pAccounts = pRootElement->FirstChildElement("Accounts");
+
+                             if (NULL != pAccounts) {
+
+ 
+
+                                           //Get 'Account' Child
+
+              XMLElement * pAccount = pAccounts->FirstChildElement("Account");
+
+ 
+
+                                           // Loop through all existing
+
+                                           while (pAccount) {
+
+ 
+
+                                                          // Get 'AccountNo' Child
+
+              XMLElement * pAccountNo = pAccount->FirstChildElement("customer");
+
+ 
+
+                                                          if (pAccountNo->GetText() == AccName) {
+
+ 
+
+cout << '|' << setw(7) << "Acc No." << '|' << setw(12) << "Account Type" << '|' << setw(15) << "Customer Name" << '|' << setw(10) << "Balance" << '|' << setw(12) << "Open Date" <<
+
+                                                                                      endl << endl;
+
+                                                                        printOneRecord(pAccount);
+
+                                                                        cout << "Account is Found!!!" << endl;
+
+                                                                        return;
+
+                                                          }
+
+                                                          // Next Account
+
+                             pAccount = pAccount->NextSiblingElement("Account");
+
+                                           }
+
+                                           cout << "\n";
+
+                             }
+
+              }
+
+              cout << "Account is Not Found!!!" << endl;
+
+}
+
+ 
+
+ 
+
+int getChoice()
+
+{
+
+              int choice;
+
+              cout << endl;
+
+    cout << "1. Search by Account Name " << endl;
+
+    cout << "2. View All Items " << endl;
+
+    cout << "3. Insert an Item " << endl;
+
+    cout << "-1. Exit" << endl;
+
+    cout << "Your Choice: " ;
+
+    cin >> choice;
+
+    cout << endl;
+
+ 
+
+    return choice;
+
+}
+
+ 
+
+ 
+
+int main() {
+
+ 
+
+ 
+
+              int choice  = 2;
+
+ 
+
+              while (choice != -1) {
+
+ 
+
+                             if (choice == 1) {
+
+                                           serachRecord();
+
+                             }
+
+                             else if (choice == 2) {
+
+                                           printXML();
+
+                             }
+
+                             else if (choice == 3) {
+
+                                           insertRecord();
+
+                             }
+
+                             else if (choice == -1) {
+
+                                           cout << endl;
+
+                                           cout << "Thank you!!!" << endl;
+
+                                           cout << endl;
+
+                             }
+
+                             else {
+
+                                           cout << "Invalid!! Enter Correct Number" <<endl;
+
+                             }
+
+                             choice = getChoice();
+
+              }
+
+              return 0;
+
+}
