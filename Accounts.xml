@@ -3,21 +3,21 @@
         <Account>
             <AccountNo>141624875937</AccountNo>
             <type>Saving</type>
-            <customer>Nadia </customer>
+            <customer>Nadia</customer>
             <balance>3459.57</balance>
             <openDate>08/21/2013</openDate>
         </Account>
         <Account>
             <AccountNo>141124865435</AccountNo>
             <type>Checking</type>
-            <customer>Jan </customer>
+            <customer>Jan</customer>
             <balance>1820.33</balance>
             <openDate>03/31/2016</openDate>
         </Account>
         <Account>
             <AccountNo>121623572937</AccountNo>
             <type>checking</type>
-            <customer>Micahel</customer>
+            <customer>Michael</customer>
             <balance>3000.78</balance>
             <openDate>06/23/2017</openDate>
         </Account>
