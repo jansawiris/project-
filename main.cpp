@@ -25,7 +25,7 @@ using namespace tinyxml2;
 
 // Create an XML Document
 XMLDocument doc;
-const char * path = "Accounts.xml";
+const char * path;
 char amountText[100];
 
 
@@ -286,7 +286,7 @@ int getChoice()
 
  
 
-int main() {
+int main(int argc, char *argv[]) {
 
  
 
@@ -294,7 +294,7 @@ int main() {
 
               int choice  = 2;
 
- 
+ 	      path = argv[1];
 
               while (choice != -1) {
 
